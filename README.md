@@ -47,6 +47,16 @@ COPY config/supervisord/*.ini /etc/supervisor.d/
 EXPOSE 514/udp
 ```
 
+Consuming
+---------
+```
+docker run -d -p 514:514/udp \
+  -e REDIRECT_SYSLOG_HOST="elk.example.org" \
+  -e REDIRECT_SYSLOG_HOST_PORT="10514" \
+  -e REDIRECT_SYSLOG_PROTOCOL="tcp" \
+  mrlesmithjr/syslog-collector
+```
+
 License
 -------
 
