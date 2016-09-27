@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+  vars:
+  tasks:
+    - name: Update APK Cache
+      apk:
+        update_cache: yes
+
+    - name: Installing Pre-Reqs
+      apk:
+        name: "{{ item }}"
+        state: "present"
+      with_items:
+        - 'rsyslog'
+        - 'supervisor'

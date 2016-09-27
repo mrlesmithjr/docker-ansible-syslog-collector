@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  become: true
+  connection: local
+  tasks:
+    - name: Configuring Rsyslog
+      template:
+        src: "/rsyslog.conf.j2"
+        dest: "/etc/rsyslog.conf" 
+      
